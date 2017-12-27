@@ -1,5 +1,4 @@
-﻿
-namespace ForumSystem.Web.ViewModels.PageableFeedbackList
+﻿namespace ForumSystem.Web.ViewModels.PageableFeedbackList
 {
     using System;
 
@@ -11,11 +10,11 @@ namespace ForumSystem.Web.ViewModels.PageableFeedbackList
 
     public class FeedbackViewModel : IMapFrom<Feedback>, IHaveCustomMappings
     {
-        private ISanitizer sanitizer;
+        private readonly ISanitizer _sanitizer;
 
         public FeedbackViewModel()
         {
-            this.sanitizer = new HtmlSanitizerAdapter();
+            this._sanitizer = new HtmlSanitizerAdapter();
         }
 
         public string Author { get; set; }
@@ -24,7 +23,7 @@ namespace ForumSystem.Web.ViewModels.PageableFeedbackList
 
         public string Content { get; set; }
 
-        public string SanitezContent => sanitizer.Sanitize(this.Content);
+        public string SanitezContent => _sanitizer.Sanitize(this.Content);
 
         public DateTime CreatedOn { get; set; }
 
