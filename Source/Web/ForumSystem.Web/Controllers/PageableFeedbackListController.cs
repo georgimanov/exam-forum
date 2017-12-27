@@ -1,14 +1,14 @@
-﻿using AutoMapper.QueryableExtensions;
-using ForumSystem.Web.ViewModels.PageableFeedbackList;
-
-namespace ForumSystem.Web.Controllers
+﻿namespace ForumSystem.Web.Controllers
 {
     using System;
     using System.Linq;
     using System.Web.Mvc;
 
+    using AutoMapper.QueryableExtensions;
+
     using ForumSystem.Data.Common.Repository;
     using ForumSystem.Data.Models;
+    using ForumSystem.Web.ViewModels.PageableFeedbackList;
 
     [Authorize]
     public class PageableFeedbackListController : Controller

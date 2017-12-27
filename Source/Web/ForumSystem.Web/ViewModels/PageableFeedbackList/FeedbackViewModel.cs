@@ -1,5 +1,4 @@
-﻿using ForumSystem.Web.Infrastructure;
-
+﻿
 namespace ForumSystem.Web.ViewModels.PageableFeedbackList
 {
     using System;
@@ -7,6 +6,7 @@ namespace ForumSystem.Web.ViewModels.PageableFeedbackList
     using AutoMapper;
 
     using ForumSystem.Data.Models;
+    using ForumSystem.Web.Infrastructure;
     using ForumSystem.Web.Infrastructure.Mapping;
 
     public class FeedbackViewModel : IMapFrom<Feedback>, IHaveCustomMappings
