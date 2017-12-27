@@ -21,6 +21,7 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Ask question", "Ask", "Questions")</li>
+                    <li>@Html.ActionLink("Send feedback", "Create", "Feedback")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -33,6 +34,12 @@
             <li class="active">Data</li>
         </ol>
         @RenderBody()
+        @if (this.TempData["Notification"] != null)
+        {
+            <div class="alert alert-success" role="alert">
+                @this.TempData["Notification"]
+            </div>
+        }
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - <a href="https://github.com/NikolayIT/ForumSystem">open source forum system</a></p>
