@@ -2,9 +2,10 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class InputViewModel
+    public class FeedbackInputModel
     {
         [Required]
+        [StringLength(20)]
         public string Title { get; set; }
 
         [Required]

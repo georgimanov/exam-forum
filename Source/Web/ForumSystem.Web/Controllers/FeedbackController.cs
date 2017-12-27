@@ -24,7 +24,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(InputViewModel model)
+        public ActionResult Create(FeedbackInputModel model)
         {
             if (!this.ModelState.IsValid)
             {
