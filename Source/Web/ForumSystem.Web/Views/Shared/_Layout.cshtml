@@ -33,13 +33,13 @@
             <li><a href="#">Library</a></li>
             <li class="active">Data</li>
         </ol>
-        @RenderBody()
         @if (this.TempData["Notification"] != null)
         {
             <div class="alert alert-success" role="alert">
                 @this.TempData["Notification"]
             </div>
         }
+        @RenderBody()
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - <a href="https://github.com/NikolayIT/ForumSystem">open source forum system</a></p>

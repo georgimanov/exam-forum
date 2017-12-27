@@ -47,7 +47,7 @@
 
             this.TempData["Notification"] = "Feedback created!";
 
-            return this.View("/"); 
+            return this.Redirect("/");
         }
     }
 }
