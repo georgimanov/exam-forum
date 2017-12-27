@@ -197,6 +197,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\FeedbackController.cs" />
+    <Compile Include="Controllers\PageableFeedbackListController.cs" />
     <Compile Include="InputModels\Questions\AskInputModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -226,6 +227,8 @@
     <Compile Include="ViewModels\Home\IndexBlogPostViewModel.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\PageableFeedbackList\FeedbackViewModel.cs" />
+    <Compile Include="ViewModels\PageableFeedbackList\PageableFeedbackListViewModel.cs" />
     <Compile Include="ViewModels\Questions\QuestionDisplayViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -462,6 +465,7 @@
     <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
     <Content Include="Views\Questions\Display.cshtml" />
     <Content Include="Views\Feedback\Create.cshtml" />
+    <Content Include="Views\PageableFeedbackList\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
