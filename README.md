@@ -1,2 +1,8 @@
-# exam-forum
-ASP.NET MVC Forum System - TA Exam
+ForumSystem
+===========
+
+Sample forums system like stackoverflow
+
+TODO
+===========
+
