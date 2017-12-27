@@ -28,10 +28,10 @@
                     <p>asked 35 minutes ago in Kids Academy - програмиране за деца by a.dimitrov04 (40 points)</p>
                 </div>
                 <div class="row">
-                    <span class="label label-default">kids</span>
-                    <span class="label label-default">academy</span>
-                    <span class="label label-default">blabla</span>
-                    <span class="label label-default">kadasdaasdasdasdids</span>
+                    @foreach (var tag in post.Tags)
+                    {
+                        <span class="label label-default">@tag.Name</span>
+                    }
                 </div>
             </div>
         </div>
