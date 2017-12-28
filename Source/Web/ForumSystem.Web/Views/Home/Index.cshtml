@@ -8,8 +8,15 @@
         <div class="row">
             <div class="col-md-1">
                 <div class="well text-center">
-                    <div class="row">0</div>
-                    <div class="row">answers</div>
+                    @if (this.User.Identity.IsAuthenticated)
+                    {
+                        <div class="row" data-id="@post.Id" data-action="up"><span class="glyphicon glyphicon-thumbs-up"></span></div>
+                    }
+                    <div class="row" data-id="@post.Id" data-action="votesCount">@post.VotesCount</div>
+                    @if (this.User.Identity.IsAuthenticated)
+                    {
+                        <div class="row" data-id="@post.Id" data-action="down"><span class="glyphicon glyphicon-thumbs-down"></span></div>
+                    }
                 </div>
             </div>
             <div class="col-md-1">
@@ -38,3 +45,32 @@
         <hr />
     }
 </div>
+
+<style>
+    div[data-action="up"], div[data-action="down"] {
+        cursor: pointer;
+    }
+</style>
+
+@section scripts
+{
+    <script>
+        $("div[data-action='up']").click(function () {
+            var id = $(this).attr("data-id");
+            voteClick(id, 1);
+        });
+
+        $("div[data-action='down']").click(function () {
+            var id = $(this).attr("data-id");
+            voteClick(id, -1);
+        });
+
+        function voteClick(id, voteType) {
+            $.post("/Votes/Vote", { postId: id, voteType: voteType }, function (data) {
+                var newVotesCount = data.Count;
+                $("div[data-action='votesCount'][data-id='" + id + "']")
+                    .html(newVotesCount);
+            });
+        }
+    </script>
+}
