@@ -26,8 +26,8 @@
                       "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/kendostyles").Include(
-                "~/Content/KendoUI/kendo/kendo.common-bootstrap.core.min.css",
-                "~/Content/KendoUI/kendo/kendo.common-bootstrap.min.css"));
+                "~/Content/KendoUI/kendo/kendo.common-bootstrap.min.css",
+                "~/Content/KendoUI/kendo/kendo.bootstrap.min.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862

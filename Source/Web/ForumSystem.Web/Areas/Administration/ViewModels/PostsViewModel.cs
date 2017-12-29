@@ -6,7 +6,7 @@
     using ForumSystem.Data.Models;
     using ForumSystem.Web.Infrastructure.Mapping;
 
-    public class PostsViewModel : IMapFrom<Post>
+    public class PostsViewModel : IMapFrom<Post> 
     {
         [Key]
         public int Id { get; set; }
