@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Forum System</title>
     @Styles.Render("~/Content/css", "~/Content/kendostyles")
+    @Scripts.Render("~/bundles/jquery")
 </head>
 <body>
     <div class="navbar navbar-default">
@@ -23,6 +24,7 @@
                     <li>@Html.ActionLink("Ask question", "Ask", "Questions")</li>
                     <li>@Html.ActionLink("Send feedback", "Create", "Feedback")</li>
                     <li>@Html.ActionLink("Feedbacks", "Index", "PageableFeedbackList")</li>
+                    <li>@Html.ActionLink("Posts", "Index", "Posts", new {area = "Administration"}, null)</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -47,7 +49,6 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/kendoscripts")
     @RenderSection("scripts", required: false)

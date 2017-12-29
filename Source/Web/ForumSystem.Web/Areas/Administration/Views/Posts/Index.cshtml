@@ -1,7 +1,42 @@
-﻿@model dynamic
+﻿@using Kendo.Mvc.UI
 
 @{
     ViewBag.Title = "Posts administration";
 }
 
 <h2>@this.ViewBag.Title</h2>
+
+@(Html.Kendo().Grid<ForumSystem.Web.Areas.Administration.ViewModels.PostsViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.Title);
+          columns.Bound(c => c.Content);
+          columns.Bound(c => c.IsDeleted);
+          columns.Bound(c => c.DeletedOn);
+          columns.Bound(c => c.CreatedOn);
+          columns.Bound(c => c.ModifiedOn);
+          columns.Command(command => { command.Edit(); command.Destroy(); });
+      })
+      .ToolBar(toolbar => { toolbar.Create(); })
+      .ColumnMenu()
+      .Editable(e => e.Mode(GridEditMode.PopUp))
+      .Pageable(page =>
+      {
+          page.PreviousNext(true);
+          page.Numeric(true);
+          page.Refresh(true);
+      })
+      .Sortable(s => { s.SortMode(GridSortMode.SingleColumn); })
+      .Filterable()
+      .Scrollable()
+      .DataSource(ds => ds
+          .Ajax()
+          .PageSize(5)
+          .Model(m => m.Id(p => p.Id))
+          .Read(r => r.Action("Read", "Posts"))
+          .Create(c => c.Action("Create", "Posts"))
+          .Update(u => u.Action("Update", "Posts"))
+          .Destroy(d => d.Action("Destroy", "Posts"))
+      )
+)

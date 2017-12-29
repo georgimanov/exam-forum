@@ -200,6 +200,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\PostsController.cs" />
+    <Compile Include="Areas\Administration\ViewModels\PostsViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\PageableFeedbackListController.cs" />
@@ -341,6 +342,7 @@
     <Content Include="Content\KendoUI\kendo\fonts\DejaVu\DejaVuSerif.ttf" />
     <Content Include="Content\KendoUI\kendo\images\kendoui.ttf" />
     <Content Include="Content\KendoUI\kendo\images\kendoui.woff" />
+    <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -358,6 +360,7 @@
     <Content Include="Scripts\kendo\cultures\kendo.culture.en.min.js" />
     <Content Include="Scripts\kendo\kendo.all.min.js" />
     <Content Include="Scripts\kendo\kendo.aspnetmvc.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
