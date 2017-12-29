@@ -65,6 +65,8 @@
 
                 this._posts.Add(post);
                 this._posts.SaveChanges();
+
+                return Json(new[] {post}.ToDataSourceResult(request, this.ModelState));
             }
 
             return this.GetGridOperations(request, model);
