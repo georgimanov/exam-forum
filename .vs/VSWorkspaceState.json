@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Source",
+    "\\Source\\Web",
+    "\\Source\\Web\\ForumSystem.Web",
+    "\\Source\\Web\\ForumSystem.Web\\App_Start",
+    "\\Source\\Web\\ForumSystem.Web\\Areas",
+    "\\Source\\Web\\ForumSystem.Web\\Areas\\Administration",
+    "\\Source\\Web\\ForumSystem.Web\\Areas\\Administration\\Controllers"
+  ],
+  "SelectedNode": "\\Source\\Web\\ForumSystem.Web\\App_Start\\BundleConfig.cs",
+  "PreviewInSolutionExplorer": false
+}

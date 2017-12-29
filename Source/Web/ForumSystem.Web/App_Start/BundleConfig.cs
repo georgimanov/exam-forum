@@ -1,6 +1,5 @@
 ﻿namespace ForumSystem.Web
 {
-    using System.Web;
     using System.Web.Optimization;
 
     public class BundleConfig
@@ -18,9 +17,17 @@
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/kendoscripts").Include(
+                "~/Scripts/kendo/kendo.all.min.js",
+                "~/Scripts/kendo/kendo.aspnetmvc.min.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.cosmo.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/kendostyles").Include(
+                "~/Content/KendoUI/kendo/kendo.common-bootstrap.core.min.css",
+                "~/Content/KendoUI/kendo/kendo.common-bootstrap.min.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
