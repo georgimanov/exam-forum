@@ -6,15 +6,13 @@
     using Microsoft.AspNet.Identity;
 
     using AutoMapper.QueryableExtensions;
-    using Kendo;
-    using Kendo.Mvc;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
 
     using ForumSystem.Data.Common.Repository;
     using ForumSystem.Data.Models;
-    using ForumSystem.Web.Areas.Administration.ViewModels;
     using ForumSystem.Web.Infrastructure;
+    using ForumSystem.Web.Areas.Administration.ViewModels;
 
     public class PostsController : Controller
     {
@@ -48,11 +46,12 @@
         }
 
         [HttpPost]
-        public ActionResult Create([DataSourceRequest]DataSourceRequest request, PostsViewModel model)
+        public ActionResult Create([DataSourceRequest]DataSourceRequest request, PostInputModel model)
         {
+            var postId = 0;
             if (this.ModelState.IsValid && model != null)
             {
-                var post = new Post
+                var postToAdd = new Post
                 {
                     Title = model.Title,
                     Content = this._sanitizer.Sanitize(model.Content),
@@ -60,16 +59,18 @@
 
                 if (this.User.Identity.IsAuthenticated)
                 {
-                    post.AuthorId = this.User.Identity.GetUserId();
+                    postToAdd.AuthorId = this.User.Identity.GetUserId();
                 }
 
-                this._posts.Add(post);
+                this._posts.Add(postToAdd);
                 this._posts.SaveChanges();
 
-                return Json(new[] {post}.ToDataSourceResult(request, this.ModelState));
+                postId = postToAdd.Id;
             }
 
-            return this.GetGridOperations(request, model);
+            var postToDisplay = this._posts.All().Project().To<PostsViewModel>().First(x => x.Id == postId);
+
+            return Json(new[] { postToDisplay }.ToDataSourceResult(request, this.ModelState));
         }
 
         [HttpPost]
@@ -82,16 +83,13 @@
                 post.Content = model.Content;
                 post.ModifiedOn = DateTime.UtcNow;
 
-                if (this.User.Identity.IsAuthenticated)
-                {
-                    post.AuthorId = this.User.Identity.GetUserId();
-                }
-
-                _posts.Update(post);
-                _posts.SaveChanges();
+                this._posts.Update(post);
+                this._posts.SaveChanges();
             }
 
-            return this.GetGridOperations(request, model);
+            var postToDisplay = this._posts.All().Project().To<PostsViewModel>().First(x => x.Id == model.Id);
+
+            return Json(new[] { postToDisplay }.ToDataSourceResult(request, this.ModelState));
         }
 
         [HttpPost]

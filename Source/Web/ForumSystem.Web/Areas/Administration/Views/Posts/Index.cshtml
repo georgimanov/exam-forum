@@ -11,10 +11,10 @@
       .Columns(columns =>
       {
           columns.Bound(c => c.Title);
-          columns.Bound(c => c.Content);
+          columns.Bound(c => c.Content).ClientTemplate("#=Content#");
           columns.Bound(c => c.IsDeleted);
           columns.Bound(c => c.DeletedOn);
-          columns.Bound(c => c.CreatedOn);
+          columns.Bound(c => c.CreatedOn).Format("{0:yyyy-MM-dd HH:mm}");
           columns.Bound(c => c.ModifiedOn);
           columns.Command(command => { command.Edit(); command.Destroy(); });
       })

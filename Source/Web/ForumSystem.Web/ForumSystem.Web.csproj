@@ -200,6 +200,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\PostsController.cs" />
+    <Compile Include="Areas\Administration\ViewModels\PostInputModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\PostsViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\FeedbackController.cs" />
@@ -571,6 +572,8 @@
     <Content Include="Views\PageableFeedbackList\Index.cshtml" />
     <Content Include="Scripts\kendo\kendo.all.min.js.map" />
     <Content Include="Scripts\kendo\kendo.aspnetmvc.min.js.map" />
+    <Content Include="Views\Shared\EditorTemplates\PostsViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
