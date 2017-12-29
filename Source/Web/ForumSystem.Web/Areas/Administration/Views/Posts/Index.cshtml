@@ -32,7 +32,7 @@
       .Scrollable()
       .DataSource(ds => ds
           .Ajax()
-          .PageSize(5)
+          .PageSize(20)
           .Model(m => m.Id(p => p.Id))
           .Read(r => r.Action("Read", "Posts"))
           .Create(c => c.Action("Create", "Posts"))
